@@ -1,0 +1,17 @@
+{
+	"name": "Good-game-report",
+	"version": "0.1.0",
+	"description": "Game review site promoting good games that are /good/",
+	"author": "Curtis Merrell",
+	"contributors": [ "Adam Andreason" ],
+	"main": "server.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/csmerrell/GoodGameReport"
+	},
+	"dependencies": {
+		"connect": "3.4.0",
+		"serve-static": "1.10.1"
+	},
+	"license": "GPL-3.0"
+}
