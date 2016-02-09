@@ -6,6 +6,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular-route.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>		
+		<script src="cookieUtils.js"></script>
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/flatly.min.css">	
@@ -18,15 +19,30 @@
 				$routeProvider
 					.when('/', {
 						templateUrl: '/pages/Home.html',
-						controller: 'homeCtrl'
+						controller: 'homeCtrl',
+						caseInsensitiveMatch: true
 					})
 					.when('/login', {
 						templateUrl: '/pages/login.html',
-						controller: 'loginCtrl'
+						controller: 'loginCtrl',
+						caseInsensitiveMatch: true
 					})
 					.otherwise({
 						redirectTo: '/'
 					})
+			});
+			
+			app.controller("navCtrl", function($scope) {
+				$scope.loggedIn = function() {
+					if(checkCookie("username"))
+						return true;
+					else
+						return false;
+				}
+				
+				$scope.logout = function() {
+					eraseCookie("username");
+				}
 			});
 		</script>
 		
@@ -35,7 +51,7 @@
 		
 	</head>
 	<body ng-app="squareApp">
-		<nav class="navbar navbar-default">
+		<nav ng-controller="navCtrl" class="navbar navbar-default">
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -52,29 +68,10 @@
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<!-- <li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
- 						<ul class="dropdown-menu" role="menu">
-							<li><a href="#">Action</a></li>
-							<li><a href="#">Another action</a></li>
-							<li><a href="#">Something else here</a></li>
-							<li class="divider"></li>
-							<li><a href="#">Separated link</a></li>
-							<li class="divider"></li>
-							<li><a href="#">One more separated link</a></li>
-						</ul>
-						</li> -->
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-<!-- 						<li>
-							<form class="navSearch" role="search">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Search">
-									<button type="submit" class="btn btn-default">Go</button>
-								</div>
-							</form>
-						</li>
- -->						<li><a style="padding: 15px" href="#login">Login</a></li>
+						<li ng-if="!loggedIn()"><a style="padding: 15px" href="#login">Login</a></li>
+						<li ng-if="loggedIn()"><a style="padding: 15px" href="#" ng-click="logout()">Logout</a></li>
 					</ul>
 				</div>
 			</div>

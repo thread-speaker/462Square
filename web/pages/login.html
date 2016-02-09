@@ -1,3 +1,5 @@
 <h1>Login</h1>
 
-{{loggedIn}}
+Username: <input type="text" ng-model="username"></input><br/>
+<input type="button" value="Login" ng-click="login(username)" /> -or- <input type="button" value="Register" ng-click="register(username)" />
+<p style="color: red">&nbsp;&nbsp;&nbsp;{{loginFailMessage}}</p>
