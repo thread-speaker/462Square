@@ -10,7 +10,7 @@ app.controller('verifyCtrl', function($scope, $routeParams) {
 			+ "&redirect_uri=http://54.201.68.154:3000/#/verify"
 			+ "&code=" + code,
 		headers: {
-			"Access-Control-Allow-Origin" : *
+			"Access-Control-Allow-Origin" : "*"
 		}
 	})
 	.done(function(token){
