@@ -8,7 +8,10 @@ app.controller('verifyCtrl', function($scope, $routeParams) {
 			+ "&client_secret=RI40Z31FC5AKE50WIIUY5N2UMAV0ETOPJHR3OPVXRJVUS3HH"
 			+ "&grant_type=authorization_code"
 			+ "&redirect_uri=http://54.201.68.154:3000/#/verify"
-			+ "&code=" + code
+			+ "&code=" + code,
+		headers: {
+			"Access-Control-Allow-Origin" : *
+		}
 	})
 	.done(function(token){
 		var username = localStorage.currentUser.username;
