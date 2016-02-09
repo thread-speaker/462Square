@@ -27,6 +27,9 @@
 						controller: 'loginCtrl',
 						caseInsensitiveMatch: true
 					})
+					.when('/privacy', {
+						template: "<p>You have no privacy here</p>"
+					})
 					.otherwise({
 						redirectTo: '/'
 					})
