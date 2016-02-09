@@ -26,7 +26,7 @@ app.controller('loginCtrl', function($scope) {
 			createCookie("username", username, 1);
 
 			window.location = "https://foursquare.com/oauth2/authenticate?client_id=3ANHQ4B311FDPQUSHWQDEVRSQQVDCDD5HBCVPHBEMMLETFTA"
-									+ "&response_type=code&redirect_uri=http://54.201.68.154:3000/#/verify";
+									+ "&response_type=token&redirect_uri=http://54.201.68.154:3000/#/verify";
 		}
 		else {
 			$scope.loginFailMessage = "User already exists."
