@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Good Game Report</title>
+		<title>462 Square</title>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.min.js"></script>
@@ -12,27 +12,29 @@
 		<link rel="stylesheet" href="css/styles.css">	
 
 		<script>
-			var app = angular.module('ggrApp', ['ngRoute']);
+			var app = angular.module('squareApp', ['ngRoute']);
 			
 			app.config(function($routeProvider) {
 				$routeProvider
 					.when('/', {
-						templateUrl: '/pages/Home.html'
+						templateUrl: '/pages/Home.html',
+						controller: 'homeCtrl'
 					})
-					.when('/Recommendations', {
-						templateUrl: '/pages/Recommendations.html'
-					})
-					.when('/ContentAdvisor', {
-						templateUrl: '/pages/ContentAdvisor.html'
+					.when('/login', {
+						templateUrl: '/pages/login.html',
+						controller: 'loginCtrl'
 					})
 					.otherwise({
 						redirectTo: '/'
 					})
 			});
-					</script>
+		</script>
+		
+		<script src="/controllers/homeCtrl.js"></script>
+		<script src="/controllers/loginCtrl.js"></script>
 		
 	</head>
-	<body ng-app="ggrApp">
+	<body ng-app="squareApp">
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 				<div class="navbar-header">
@@ -43,18 +45,13 @@
 						<span class="icon-bar"></span>
 					</button>
 					<a class="navbar-brand" href="#">
-						<span class="logoPrefix">
-							The
-						</span>
 						<span class="logo">
-							<span class="logoCapital">G</span>ood<span class="logoCapital">G</span>ame<span class="logoCapital">R</span>eport
+							462 <span class="logoCapital">Square</span>
 						</span>
 					</a>
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="#Recommendations">Recommendations</a></li>
-						<li><a href="#ContentAdvisor">Content Advisor</a></li>
 						<!-- <li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
  						<ul class="dropdown-menu" role="menu">
@@ -77,7 +74,7 @@
 								</div>
 							</form>
 						</li>
- -->						<li><a style="padding: 15px" href="#">Login</a></li>
+ -->						<li><a style="padding: 15px" href="#login">Login</a></li>
 					</ul>
 				</div>
 			</div>
