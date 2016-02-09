@@ -7,9 +7,11 @@ app.controller('loginCtrl', function($scope) {
 	$scope.login = function(username) {
 		createCookie("username", username, 1);
 		localStorage.username = username;
-		if (localStorage[username]) {
-			localStorage[username] = localStorage[username] || 1;
+		if (!localStorage[username]) {
+			window.location = "https://foursquare.com/oauth2/authenticate?client_id=HSFNBRE43J2PV0WVTNH11GGBJJBCKYKND1XLW25PDP1GOTNV&response_type=token&redirect_uri=http://52.34.148.89:3000/verify.html";
 		}
-		window.location = "#home";
+		else {
+			window.location = '#/home';
+		}
 	}
 });

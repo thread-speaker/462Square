@@ -26,6 +26,14 @@
 						controller: 'loginCtrl',
 						caseInsensitiveMatch: true
 					})
+					.when('/privacy', {
+						template: '<p>Be Nice</p>'
+					})
+					.when('/verify', {
+						templateUrl: '/pages/verify.html',
+						controller: 'verifyCtrl',
+						caseInsensitiveMatch: true
+					})
 					.otherwise({
 						redirectTo: '/'
 					})
@@ -61,6 +69,7 @@
 		
 		<script src="/controllers/homeCtrl.js"></script>
 		<script src="/controllers/loginCtrl.js"></script>
+		<script src="/controllers/verifyCtrl.js"></script>
 		
 	</head>
 	<body ng-app="squareApp">
