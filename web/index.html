@@ -18,7 +18,7 @@
 			app.config(function($routeProvider) {
 				$routeProvider
 					.when('/', {
-						templateUrl: '/pages/Home.html',
+						templateUrl: '/pages/home.html',
 						controller: 'homeCtrl',
 						caseInsensitiveMatch: true
 					})
@@ -28,7 +28,13 @@
 						caseInsensitiveMatch: true
 					})
 					.when('/privacy', {
-						template: "<p>You have no privacy here</p>"
+						template: "<p>You have no particular privacy here</p>",
+						caseInsensitiveMatch: true
+					})
+					.when('/verify', {
+						templateUrl: "/pages/verify.html",
+						controller: "verifyCtrl",
+						caseInsensitiveMatch: true
 					})
 					.otherwise({
 						redirectTo: '/'
@@ -51,6 +57,7 @@
 		
 		<script src="/controllers/homeCtrl.js"></script>
 		<script src="/controllers/loginCtrl.js"></script>
+		<script src="/controllers/verifyCtrl.js"></script>
 		
 	</head>
 	<body ng-app="squareApp">
