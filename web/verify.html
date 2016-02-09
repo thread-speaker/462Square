@@ -1,14 +1,21 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.min.js"></script>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.min.js"></script>
 
-<script>
-	var app = angular.module('squareVerifyApp');
-</script>
+		<script>
+			var app = angular.module('squareVerifyApp');
+		</script>
 
-<script src="/controllers/verifyCtrl.js"></script>
+		<script src="/controllers/verifyCtrl.js"></script>
 
-<div ng-app="squareVerifyApp" ng-controller="verifyCtrl">
-	<h1>Verification</h1>
+	</head>
 
-	<h3 ng-model="verificationMessage"></h3>
-</div>
+	<body ng-app="squareVerifyApp">
+		<div ng-controller="verifyCtrl">
+			<h1>Verification</h1>
+
+			<h3 ng-model="verificationMessage"></h3>
+		</div>
+	</body>
+</html>
