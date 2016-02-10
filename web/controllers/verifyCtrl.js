@@ -3,6 +3,8 @@ var app = angular.module('squareVerifyApp');
 app.controller('verifyCtrl', function($scope, $location) {
 	var token = $location.hash().split('=')[1];
 	var username = localStorage.currentUser;
-	localStorage[username].accessToken = token;
+	var user = JSON.parse(localStorage[username]);
+	user.accessToken = token;
+	localStorage[username] = JSON.stringify(user);
 	$scope.verificationMessage = "verified with token: " + token;
 });
