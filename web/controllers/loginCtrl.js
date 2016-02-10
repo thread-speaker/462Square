@@ -21,7 +21,7 @@ app.controller('loginCtrl', function($scope) {
 		if(!localStorage[username]) {
 			$scope.loginFailMessage = "";
 
-			localStorage[username] = username;
+			localStorage[username] = { "username" : username };
 			localStorage.currentUser = username;
 			createCookie("username", username, 1);
 
