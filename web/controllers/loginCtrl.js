@@ -22,7 +22,7 @@ app.controller('loginCtrl', function($scope) {
 			$scope.loginFailMessage = "";
 
 			localStorage[username] = username;
-			localStorage.currentUser = { "username" : username };
+			localStorage.currentUser = username;
 			createCookie("username", username, 1);
 
 			window.location = "https://foursquare.com/oauth2/authenticate?client_id=3ANHQ4B311FDPQUSHWQDEVRSQQVDCDD5HBCVPHBEMMLETFTA"
