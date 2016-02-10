@@ -36,6 +36,10 @@
 						controller: "verifyCtrl",
 						caseInsensitiveMatch: true
 					})
+					.when('/reset', {
+						templateUrl: "/pages/reset.html",
+						controller: "resetCtrl"
+					})
 					.otherwise({
 						redirectTo: '/'
 					})
@@ -58,6 +62,7 @@
 		<script src="/controllers/homeCtrl.js"></script>
 		<script src="/controllers/loginCtrl.js"></script>
 		<script src="/controllers/verifyCtrl.js"></script>
+		<script src="/controllers/resetCtrl.js"></script>
 		
 	</head>
 	<body ng-app="squareApp">
