@@ -1,10 +1,11 @@
 var app = angular.module('squareApp');
 
 app.controller('homeCtrl', function($scope) {
-	$scope.loggedIn = function() {
-		if(document.cookie)
-			return true;
-		else
-			return false;
+	if(localStorage.users) {
+		$scope.users = JSON.parse(localStorage.users);
+		
+		$scope.view = function(username) {
+			window.location = "#profile?user=" + username
+		}
 	}
 });

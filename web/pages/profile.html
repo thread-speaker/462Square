@@ -1,0 +1,14 @@
+<h1>Profile for {{selectedUser.username}}</h1>
+
+<div ng-if="noCheckins()">
+	No checkins found. Here is the raw JSON we received from foursquare: <br/>
+	{{checkins}}
+</div>
+<div ng-if="!currentUser() && !noCheckins()">
+	<h3>Viewing someone else's profile. Only viewing first checkin</h3>
+	{{checkins.items[0]}}
+</div>
+<div ng-if="currentUser()" ng-repeat="item in checkins.items">
+	<h3> Checkin Item {{checkins.items.indexOf(item) + 1}}</h3>
+	{{item}} <br/>
+</div>

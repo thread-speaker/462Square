@@ -1,3 +1,5 @@
 <h1>Home</h1>
 
-{{loggedIn()}}
+<div ng-repeat="user in users">
+	<a ng-click="view(user.username)">{{user.username}}</a> 
+</div>
