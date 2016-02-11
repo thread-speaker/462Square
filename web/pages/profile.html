@@ -1,0 +1,15 @@
+<p>{{user}} - {{username}} : {{user==username}}</p>
+<div>
+	<div ng-if="checkins.count == 0">
+		No checkins recorded for this person.
+	</div>
+	<div ng-if="user == username">
+		<div ng-repeat="(key,value) in checkins.items">
+			<h2>Checkin {{key}}</h2>
+			<p>{{value}}</p>
+		</div>
+	</div>
+	<div ng-if="user != username && checkins.count > 0">
+		{{checkins.items[0]}};
+	</div>
+</div>

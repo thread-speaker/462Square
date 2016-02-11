@@ -1,3 +1,5 @@
 <h1>Home</h1>
-<p ng-if="loggedIn">You are logged in</p>
+<div ng-if="loggedIn" ng-repeat="(key, value) in profiles">
+	<a href={{"#/profile?user="+key}}>{{key}}</a>
+</div>
 <p ng-if="!loggedIn">You are not logged in</p>
